@@ -1,0 +1,8 @@
+/home/victor/Application/git/activemq-5.12/activemq-5.12-client/src/main/java/fr/vga/direct/failover/DirectFailoverConsumer.java
+/home/victor/Application/git/activemq-5.12/activemq-5.12-client/src/main/java/fr/vga/proxy/simple/ProxyConsumer.java
+/home/victor/Application/git/activemq-5.12/activemq-5.12-client/src/main/java/fr/vga/direct/failover/DirectFailoverProducer.java
+/home/victor/Application/git/activemq-5.12/activemq-5.12-client/src/main/java/fr/vga/proxy/simple/ProxyProducer.java
+/home/victor/Application/git/activemq-5.12/activemq-5.12-client/src/main/java/fr/vga/direct/simple/SimpleDirectConsumer.java
+/home/victor/Application/git/activemq-5.12/activemq-5.12-client/src/main/java/fr/vga/proxy/failover/ProxyFailoverConsumer.java
+/home/victor/Application/git/activemq-5.12/activemq-5.12-client/src/main/java/fr/vga/direct/simple/SimpleDirectProducer.java
+/home/victor/Application/git/activemq-5.12/activemq-5.12-client/src/main/java/fr/vga/proxy/failover/ProxyFailoverProducer.java

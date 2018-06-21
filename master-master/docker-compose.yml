@@ -1,0 +1,78 @@
+version: '3.4'
+
+services:
+
+  db:
+   image: postgres
+   restart: always
+   environment:
+       POSTGRES_PASSWORD: admin
+       POSTGRES_USER: admin
+       POSTGRES_DB: activemq
+   healthcheck:
+     test: ["CMD-SHELL", "pg_isready -U admin"]
+     interval: 30s
+     timeout: 30s
+     retries: 3
+   networks:
+     - db-network
+   ports:
+    - 5432:5432
+
+  master:
+    build: ../resources
+    restart: always
+    volumes:
+      - ./conf/master:/opt/activemq/conf
+      - ./conf/data/master:/opt/activemq/data
+    ports:
+      - 61616:61616
+      - 8161:8161
+    networks:
+      - db-network
+    links:
+      - db
+    depends_on:
+      - db
+    healthcheck:
+        test: ["CMD", "curl", "-f", "--user admin:admin", "--basic", "http://localhost:8161/api/jokolia"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+
+  slave:
+    depends_on:
+     - master
+     - db
+    build: ../resources
+    restart: always
+    volumes:
+      - ./conf/slave:/opt/activemq/conf
+      - ./conf/data/slave:/opt/activemq/data
+    ports:
+      - 61617:61617
+      - 8162:8162
+    networks:
+      - db-network
+    links:
+      - db
+
+  haproxy:
+    depends_on:
+     - master
+    build: ../haproxy
+    restart: always
+    ports:
+      - 61618:61618
+      - 8080:8080
+      - 9000:9000
+    links:
+       - master
+       - slave
+    networks:
+      - db-network
+
+
+networks:
+  db-network:
+    driver: bridge

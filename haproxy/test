@@ -1,0 +1,8 @@
+frontend activemq_http
+    bind 0.0.0.0:8080
+    mode http
+    use_backend activemq_http_backend
+
+backend activemq_http_backend
+    mode http
+    server master  victor-Latitude-E7450:8161 maxconn 32
