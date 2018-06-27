@@ -1,8 +1,0 @@
-fr/vga/direct/simple/SimpleDirectConsumer.class
-fr/vga/direct/failover/DirectFailoverConsumer.class
-fr/vga/proxy/simple/ProxyProducer.class
-fr/vga/proxy/failover/ProxyFailoverConsumer.class
-fr/vga/proxy/failover/ProxyFailoverProducer.class
-fr/vga/direct/simple/SimpleDirectProducer.class
-fr/vga/direct/failover/DirectFailoverProducer.class
-fr/vga/proxy/simple/ProxyConsumer.class

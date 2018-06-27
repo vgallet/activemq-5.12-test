@@ -16,6 +16,7 @@ services:
      retries: 3
    networks:
      - db-network
+   hostname: localhost
    ports:
     - 5432:5432
 
@@ -25,6 +26,7 @@ services:
     volumes:
       - ./conf/master:/opt/activemq/conf
       - ./conf/data/master:/opt/activemq/data
+    hostname: localhost
     ports:
       - 61616:61616
       - 8161:8161
@@ -49,6 +51,7 @@ services:
     volumes:
       - ./conf/slave:/opt/activemq/conf
       - ./conf/data/slave:/opt/activemq/data
+    hostname: localhost
     ports:
       - 61617:61617
       - 8162:8162
@@ -62,6 +65,7 @@ services:
      - master
     build: ../haproxy
     restart: always
+    hostname: localhost
     ports:
       - 61618:61618
       - 8080:8080

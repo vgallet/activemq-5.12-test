@@ -22,7 +22,7 @@ public class SimpleDirectProducer {
 
         // create a Connection Factory
         ConnectionFactory connectionFactory =
-                new ActiveMQConnectionFactory("tcp://localhost:61617");
+                new ActiveMQConnectionFactory("tcp://localhost:61616");
 
         // create a Connection
         connection = connectionFactory.createConnection();
@@ -59,10 +59,13 @@ public class SimpleDirectProducer {
         SimpleDirectProducer producer = new SimpleDirectProducer();
 
         producer.create("vga-producer", "topic.foo.vga");
-        IntStream.range(0, 10).forEach(i -> {
+        IntStream.iterate(0, i -> i + 1).forEach(i -> {
             try {
                 producer.sendName("Message " + i);
+                Thread.sleep(2000);
             } catch (JMSException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         });

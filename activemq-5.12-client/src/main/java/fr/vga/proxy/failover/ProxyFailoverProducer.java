@@ -21,7 +21,7 @@ public class ProxyFailoverProducer {
 
         // create a Connection Factory
         ConnectionFactory connectionFactory =
-                new ActiveMQConnectionFactory("failover:(tcp://localhost:61618)?initialReconnectDelay=10");
+                new ActiveMQConnectionFactory("failover:(tcp://localhost:61617)?initialReconnectDelay=10");
 
         // create a Connection
         connection = connectionFactory.createConnection();

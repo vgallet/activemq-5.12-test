@@ -79,9 +79,9 @@
             http://activemq.apache.org/persistence.html
         -->
         <persistenceAdapter>
-            <jdbcPersistenceAdapter dataDirectory="${activemq.data}/jdbc"  dataSource="#postgres-ds"/>
+            <!--<jdbcPersistenceAdapter  dataSource="#postgres-ds"/>-->
 
-            <!--<kahaDB directory="${activemq.data}/kahadb"/>-->
+            <kahaDB directory="${activemq.data}/kahadb"/>
         </persistenceAdapter>
 
 

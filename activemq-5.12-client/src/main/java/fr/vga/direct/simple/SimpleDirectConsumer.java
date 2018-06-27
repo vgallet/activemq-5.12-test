@@ -18,7 +18,7 @@ public class SimpleDirectConsumer {
         this.clientId = clientId;
 
         // create a Connection Factory
-        ConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://localhost:61616");
+        ConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://localhost:61617");
 
         // create a Connection
         connection = connectionFactory.createConnection();

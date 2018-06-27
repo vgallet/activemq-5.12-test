@@ -78,15 +78,12 @@
 
             http://activemq.apache.org/persistence.html
         -->
-        <!--<persistenceAdapter>-->
-            <!--<kahaDB directory="${activemq.data}/kahadb"/>-->
-        <!--</persistenceAdapter>-->
         <persistenceAdapter>
-            <jdbcPersistenceAdapter dataDirectory="${activemq.data}/jdbc"  dataSource="#postgres-ds"/>
-            <!--
-            <jdbcPersistenceAdapter dataDirectory="activemq-data" dataSource="#oracle-ds"/>
-            -->
+            <kahaDB directory="${activemq.data}/kahadb"/>
         </persistenceAdapter>
+        <!--<persistenceAdapter>-->
+            <!--<jdbcPersistenceAdapter dataDirectory="${activemq.data}/jdbc"  dataSource="#postgres-ds"/>-->
+        <!--</persistenceAdapter>-->
 
           <!--
             The systemUsage controls the maximum amount of space the broker will

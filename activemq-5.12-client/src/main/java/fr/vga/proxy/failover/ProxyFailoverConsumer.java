@@ -72,7 +72,7 @@ public class ProxyFailoverConsumer {
     public static void main(String[] args) throws JMSException, InterruptedException {
         ProxyFailoverConsumer consumer = new ProxyFailoverConsumer();
 
-        consumer.create("vga-consumer", "topic.foo.vga");
+        consumer.create("proxy-failover-consumer", "topic.foo.vga");
         while(true) {
             Thread.sleep(5000);
             consumer.getMessage(10, true);
